@@ -1,0 +1,50 @@
+<!doctype html>
+<html> 
+<style>
+body {
+	text-align: center;
+	background-color: Orange;
+}
+table {
+	display: inline-block;
+	color:black;
+}
+</style>
+<body>
+<h1>{{x}}</h1>
+<h2>{{sa[4]}}</h2>
+<form action = "/view" method = "POST" id="ai">
+<table border=3>
+<tr>
+<td>{{f[1]}}</td><td>{{f[2]}}</td><td>{{f[5]}}</td><td>{{f[6]}}</td><td>{{f[7]}}</td><td>{{f[20]}}</td><td>{{f[21]}}</td><td>{{f[22]}}</td><td>{{f[23]}}</td><td>{{f[24]}}</td><td>{{f[25]}}</td>
+
+</tr>
+    {%for i in wz%}
+{%if x in i%}
+    <tr>
+    <td>{{i[1]}}</td><td>{{i[2]}}</td><td>{{i[5]}}</td><td>{{i[6]}}</td><td>{{i[7]}}</td><td>{{i[20]}}</td><td>{{i[21]}}</td><td>{{i[22]}}</td><td>{{i[23]}}</td><td>{{i[24]}}</td><td>{{i[25]}}</td>
+<td>
+<input type="checkbox" name="bn" value={{i[7]}} />
+<script>
+</script>
+</td>    
+</tr>
+    {%endif%}
+    {%endfor%}
+</table>
+<p><input type = "submit" value = "Pay"/></p>
+</form>
+<p>Total Bill Amount:{{q}}</p>
+<p>Total Amount Received:{{za}}</p>
+<p>Amount Pending:{{pe}}</p>
+
+	<form action = "/pdf" method = "POST" id="aia">
+		<p> Amount received: <input type = "text" name = "qw" /></p>
+		<p> Date: <input type = "date" name = "dt" /></p>
+		<p> Mode: <input type = "text" name = "md" /></p>
+		<p> Bill No.: <input type = "text" name = "bn" /></p>
+        <p><input type = "submit" value = "Generate Receipt"/></p>
+	</form>
+<button><a href = "http://127.0.0.1:5000/">Enter Another TAN</a></button>
+</body>
+</html>
